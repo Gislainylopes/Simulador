@@ -1,32 +1,23 @@
-/* =========================================================
-   RESET
-========================================================= */
-
+/*RESET*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     font-family: "Share Tech", sans-serif;
-
     font-weight: 400;
     font-style: normal;
-
     color: #ffffff;
     text-rendering: optimizeLegibility;
 }
 
-button, select, input {
+button,
+select,
+input {
     font: inherit;
 }
 
-
-/* =========================================================
-   ANIMAÇÃO
-========================================================= */
-
+/*ANIMAÇÃO*/
 @keyframes pulsar {
-
     0% {
         box-shadow:
             0 0 5px #00d4ff,
@@ -46,214 +37,120 @@ button, select, input {
     }
 }
 
-
-/* =========================================================
-   BODY
-========================================================= */
-
+/*BODY*/
 body {
     background: #08052d;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-
-/* =========================================================
-   TÍTULOS
-========================================================= */
-
+/*TÍTULOS*/
 h1 {
     font-family: "Orbitron", sans-serif;
-
     font-weight: 500;
-
     font-size: 18px;
-
     color: #ffffff;
-
     text-align: center;
-
     margin-bottom: 15px;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
+/*HEADER*/
 .header {
     background-color: #00002d;
-
     min-height: 65px;
-
     width: 100%;
-
     padding: 15px 20px;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     border-bottom: 2px solid #00d4ff;
 }
 
 .header h1 {
     margin: 0;
-
     font-size: clamp(16px, 2vw, 25px);
 }
 
-
-/* =========================================================
-   CONTAINER PRINCIPAL
-========================================================= */
-
+/*CONTAINER PRINCIPAL*/
 .container {
-
     background-color: #120a56;
-
     width: 100%;
-
     height: 560px;
-
     display: grid;
-
     grid-template-columns:
-        minmax(230px, 0.95fr)
-        minmax(390px, 2.4fr)
-        minmax(245px, 1.15fr);
-
+        minmax(230px, 0.95fr) minmax(390px, 2.4fr) minmax(245px, 1.15fr);
     gap: 0;
-
     min-width: 0;
 }
 
-
-/* =========================================================
-   GRÁFICOS
-========================================================= */
-
+/*GRÁFICOS*/
 .graficos {
-
     display: grid;
-
     grid-template-rows: 1fr 1fr;
-
     gap: 0;
-
     min-width: 0;
-
     min-height: 0;
-
     overflow: hidden;
 }
 
 .grafico-1,
 .grafico-2 {
-
     background-color: rgba(11, 8, 39, 0.45);
-
     padding: 12px;
-
     margin: 12px;
-
     border-radius: 10px;
-
     border: 2px solid #00d4ff;
-
     animation: pulsar 2s infinite;
-
     min-width: 0;
-
     min-height: 0;
-
     overflow: hidden;
 }
 
 .canvas-grafico,
 .grafico-1 canvas,
 .grafico-2 canvas {
-
     display: block;
-
     width: 100%;
-
     height: 100%;
-
     max-width: 100%;
-
     max-height: 100%;
 }
 
-
-/* =========================================================
-   CANVAS PRINCIPAL
-========================================================= */
-
+/*CANVAS PRINCIPAL*/
 .canvas-container {
-
     position: relative;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     min-width: 0;
-
     min-height: 0;
-
     overflow: hidden;
 }
 
 #canvas {
-
     display: block;
-
     width: 90%;
-
     height: 90%;
-
     max-width: 100%;
-
     max-height: 100%;
-
     background-color: #00002d;
-
     border-radius: 10px;
-
     border: 2px solid #00d4ff;
-
     animation: pulsar 2s infinite;
 }
 
-
-/* =========================================================
-   BOTÕES
-========================================================= */
-
+/*BOTÕES*/
 .botoes-acionamento {
-
     position: absolute;
-
     bottom: 25px;
-
     left: 15%;
-
-    right: 15%;
-
+    right: 15;
     display: flex;
-
     gap: 10px;
 }
 
 button {
-
     cursor: pointer;
-
     transition:
         background-color 0.2s,
         transform 0.2s,
@@ -261,438 +158,263 @@ button {
 }
 
 button:hover {
-
     transform: translateY(-2px);
-
     box-shadow:
         0 0 12px rgba(0, 212, 255, 0.5);
 }
 
 button:disabled {
-
     opacity: 0.4;
-
     cursor: not-allowed;
-
     transform: none;
 }
 
 .botao-lancar,
 .botao-restart {
-
     flex: 1;
-
     background-color: #00002d;
-
     color: #ffffff;
-
     border-radius: 5px;
-
     padding: 13px;
-
     font-size: 14px;
-
     font-weight: bold;
 }
 
 .botao-lancar {
-
     border: 2px solid #00d4ff;
 }
 
 .botao-restart {
-
     border: 2px solid #ff3b4f;
 }
 
-
-/* =========================================================
-   DADOS
-========================================================= */
-
+/*DADOS*/
 .dados {
-
     background-color: rgba(11, 8, 39, 0.45);
-
     margin: 12px;
-
     padding: 15px;
-
     border-radius: 10px;
-
     border: 2px solid #00d4ff;
-
     animation: pulsar 2s infinite;
-
     min-width: 0;
-
     overflow: hidden;
 }
 
 .dados h1 {
-
     font-size: 16px;
-
     margin-bottom: 10px;
 }
 
 .dado-item {
-
     display: grid;
-
     grid-template-columns: 1fr auto;
-
     gap: 8px;
-
     padding-bottom: 5px;
-
     margin-bottom: 5px;
-
     border-bottom:
-        1px solid
-        rgba(0, 212, 255, 0.2);
-
+        1px solid rgba(0, 212, 255, 0.2);
     font-size: clamp(12px, 0.85vw, 14px);
     line-height: 1.25;
 }
 
 .dado {
-
     text-align: right;
-
     color: #ff4d5e;
-
     white-space: nowrap;
 }
 
-
-/* =========================================================
-   CONTROLES
-========================================================= */
-
+/*CONTROLES*/
 .controles {
-
     background-color: #120a56;
-
     width: 100%;
-
     min-height: 300px;
-
     display: grid;
-
     grid-template-columns:
-        minmax(250px, 1fr)
-        minmax(400px, 2fr);
-
+        minmax(250px, 1fr) minmax(400px, 2fr);
     min-width: 0;
 }
 
-
-/* =========================================================
-   PAINÉIS
-========================================================= */
-
+/*PAINÉIS*/
 .estrutura,
 .parametros {
-
     background-color: rgba(11, 8, 39, 0.45);
-
     margin: 15px;
-
     padding: 20px;
-
     border-radius: 10px;
-
     border: 2px solid #00d4ff;
-
     animation: pulsar 2s infinite;
-
     min-width: 0;
 }
 
-
-/* =========================================================
-   SLIDERS
-========================================================= */
-
+/*SLIDERS*/
 .slider-group {
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 15px;
-
     padding-bottom: 10px;
-
     margin-bottom: 10px;
-
     border-bottom:
-        1px solid
-        rgba(0, 212, 255, 0.2);
-
+        1px solid rgba(0, 212, 255, 0.2);
     min-width: 0;
 }
 
 .slider-group.vertical {
-
     display: block;
 }
 
 .slider-header {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 10px;
-
     font-size: 14px;
 }
 
-
-/* =========================================================
-   SELECT
-========================================================= */
-
+/*SELECT*/
 select,
 input {
-
     background-color: #00002d;
-
     color: #ffffff;
-
     border: 2px solid #00d4ff;
-
     border-radius: 5px;
-
     padding: 9px;
-
     width: 100%;
-
     outline: none;
 }
 
 select:focus,
 input:focus {
-
     box-shadow:
-        0 0 10px
-        rgba(0, 212, 255, 0.5);
+        0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-
-/* =========================================================
-   RANGE
-========================================================= */
-
+/*RANGE*/
 input[type="range"] {
-
     padding: 0;
-
     margin-top: 10px;
-
     accent-color: #00d4ff;
-
     cursor: pointer;
 }
 
-
-/* =========================================================
-   CONFIGURAÇÃO
-========================================================= */
-
+/*CONFIGURAÇÃO*/
 .config-info {
-
     background-color: #00002d;
-
     border:
-        1px solid
-        rgba(0, 212, 255, 0.4);
-
+        1px solid rgba(0, 212, 255, 0.4);
     border-radius: 5px;
-
     padding: 12px;
-
     margin-top: 10px;
-
     font-size: 12px;
-
     line-height: 1.7;
-
     color: #9deeff;
 }
 
-
-/* =========================================================
-   MENSAGEM FINAL
-========================================================= */
-
+/*MENSAGEM FINAL*/
 .message {
-
     position: fixed;
-
     inset: 0;
-
     display: none;
-
     justify-content: center;
-
     align-items: center;
-
     background:
         rgba(0, 0, 20, 0.75);
-
     z-index: 1000;
 }
 
 .message-box {
-
     width: min(450px, 90%);
-
     background: #00002d;
-
     border:
-        2px solid
-        #00d4ff;
-
+        2px solid #00d4ff;
     border-radius: 10px;
-
     padding: 30px;
-
     text-align: center;
-
     box-shadow:
-        0 0 30px
-        rgba(0, 212, 255, 0.5);
+        0 0 30px rgba(0, 212, 255, 0.5);
 }
 
 .message-box h2 {
-
     font-family: "Orbitron", sans-serif;
-
     color: #00d4ff;
-
     margin-bottom: 15px;
 }
 
 .message-box p {
-
     line-height: 1.6;
-
     margin-bottom: 20px;
 }
 
 .message-box button {
-
     background: #00002d;
-
     border: 2px solid #00d4ff;
-
     border-radius: 5px;
-
     padding: 10px 30px;
 }
 
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
+/*RESPONSIVIDADE*/
 @media (max-width: 1150px) {
-
     .container {
-
         height: auto;
-
         min-height: 700px;
-
         grid-template-columns:
-            minmax(205px, 0.85fr)
-            minmax(360px, 2.2fr)
-            minmax(225px, 1fr);
+            minmax(205px, 0.85fr) minmax(360px, 2.2fr) minmax(225px, 1fr);
     }
 
     .controles {
-
         grid-template-columns:
             1fr 2fr;
     }
 
     .botoes-acionamento {
-
         left: 10%;
-
         right: 10%;
     }
 }
 
-
 @media (max-width: 750px) {
-
     .container {
-
         grid-template-columns: 1fr;
-
         height: auto;
     }
 
     .graficos {
-
         height: 350px;
-
         grid-template-columns: 1fr 1fr;
-
         grid-template-rows: 1fr;
     }
 
     .canvas-container {
-
         height: 500px;
     }
 
     .dados {
-
         min-height: 400px;
         max-height: none;
     }
 
     .controles {
-
         grid-template-columns: 1fr;
-
         height: auto;
     }
 }
 
-
 @media (max-width: 500px) {
-
     .graficos {
-
         grid-template-columns: 1fr;
-
         grid-template-rows: 1fr 1fr;
-
         height: 500px;
     }
 
     .canvas-container {
-
         height: 450px;
     }
 
     .botoes-acionamento {
-
         flex-direction: column;
-
         bottom: 15px;
     }
 
     .slider-group {
-
         grid-template-columns: 1fr;
     }
 }
