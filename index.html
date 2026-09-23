@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Lançamento CVT-E</title>
+    <link rel="stylesheet" href="foguete.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <h1>SIMULADOR DE LANÇAMENTO CVT-E</h1>
+    </header>
+    <main class="container">
+
+        <!--GRÁFICOS-->
+
+        <section class="graficos">
+            <div class="grafico-1">
+                <canvas id="canvas-grafico-1"></canvas>
+            </div>
+
+            <div class="grafico-2">
+                <canvas id="canvas-grafico-2"></canvas>
+            </div>
+        </section>
+
+
+        <!--CANVAS PRINCIPAL-->
+
+        <section class="canvas-container">
+            <canvas id="canvas"></canvas>
+            <div class="botoes-acionamento">
+                <button
+                    id="lançar"
+                    class="botao-lancar"
+                    type="button">
+                    LANÇAR FOGUETE
+                </button>
+                <button
+                    id="reset"
+                    class="botao-restart"
+                    type="button">
+                    REINICIAR VOO
+                </button>
+            </div>
+        </section>
+
+
+        <!--DADOS DO VOO-->
+
+        <section class="dados">
+            <h1>Dados do voo</h1>
+            <div class="dado-item">
+                <span>Altitude:</span>
+                <span class="dado">
+                    <span id="altitude">0</span> km
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Velocidade X:</span>
+                <span class="dado">
+                    <span id="velo-x">0</span> m/s
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Velocidade Y:</span>
+                <span class="dado">
+                    <span id="velo-y">0</span> m/s
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Pressão dinâmica:</span>
+                <span class="dado">
+                    <span id="pressao">0</span> Pa
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Aceleração:</span>
+                <span class="dado">
+                    <span id="aceleracao">0</span> m/s²
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Gravidade local:</span>
+                <span class="dado">
+                    <span id="gravidade-local">0</span> m/s²
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Combustível:</span>
+                <span class="dado">
+                    <span id="combustivel">0</span> kg
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Tempo de voo:</span>
+                <span class="dado">
+                    <span id="tempo-voo">0</span> s
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Inclinação:</span>
+                <span class="dado">
+                    <span id="inclinação">90</span>°
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Temperatura:</span>
+                <span class="dado">
+                    <span id="temperatura">15</span> °C
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>G-Force:</span>
+                <span class="dado">
+                    <span id="gforce">1.00</span> G
+                </span>
+            </div>
+
+            <div class="dado-item">
+                <span>Estágio:</span>
+                <span class="dado">
+                    <span id="estagio-atual">1/1</span>
+                </span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--CONTROLES-->
+
+    <section class="controles">
+
+        <!--ESTRUTURA-->
+
+        <div class="estrutura">
+
+            <h1>Estrutura</h1>
+
+            <div class="slider-group">
+
+                <label class="slider-header">
+                    Aerodinâmica (Coifa)
+                </label>
+
+                <select id="coifa">
+
+                    <option value="0.75">
+                        Plana / Cilíndrica — Alto Arrasto
+                    </option>
+
+                    <option
+                        value="0.50"
+                        selected>
+                        Triangular / Cônica — Médio Arrasto
+                    </option>
+
+                    <option value="0.30">
+                        Ogiva Curvada — Baixo Arrasto
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="slider-group">
+
+                <label class="slider-header">
+                    Quantidade de Estágios
+                </label>
+
+                <select id="estagios">
+
+                    <option
+                        value="1"
+                        selected>
+                        1 Estágio
+                    </option>
+
+                    <option value="2">
+                        2 Estágios
+                    </option>
+
+                    <option value="3">
+                        3 Estágios
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!--PARÂMETROS-->
+
+        <div class="parametros">
+
+            <h1>Parâmetros de lançamento</h1>
+
+
+            <div class="slider-group">
+
+                <label class="slider-header">
+                    Perfil de Voo
+                </label>
+
+                <select id="perfil-voo">
+
+                    <option
+                        value="sondagem"
+                        selected>
+                        Sondagem — 100% Vertical
+                    </option>
+
+                    <option value="tentativa-orbital">
+                        Tentativa Orbital
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="slider-group">
+
+                <label class="slider-header">
+                    Propelente
+                </label>
+
+                <select id="propelente">
+
+                    <option
+                        value="sólido"
+                        selected>
+                        Sólido (APCP) — Isp 250s
+                    </option>
+
+                    <option value="líquido">
+                        Hidrogênio Líquido — Isp 450s
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="slider-group vertical">
+                <div class="slider-header">
+                    <span>Empuxo</span>
+                    <span id="label-empuxo">
+                        15.000 N
+                    </span>
+                </div>
+                <input
+                    type="range"
+                    id="empuxo"
+                    min="2000"
+                    max="100000"
+                    step="1000"
+                    value="15000">
+            </div>
+
+
+            <div class="slider-group vertical">
+                <div class="slider-header">
+                    <span>Massa do Combustível</span>
+                    <span id="label-massa">
+                        300 kg
+                    </span>
+                </div>
+                <input
+                    type="range"
+                    id="massa"
+                    min="50"
+                    max="2500"
+                    step="50"
+                    value="300">
+            </div>
+
+
+            <div class="config-info">
+                <span id="informacoes-configuracao">
+                    Carregando configuração...
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <!--MENSAGEM FINAL-->
+    <div
+        id="message"
+        class="message">
+        <div class="message-box">
+            <h2 id="msg-title">
+                VOO FINALIZADO
+            </h2>
+            <p id="msg-desc">
+                Resultado do voo.
+            </p>
+            <button
+                id="messageClose"
+                type="button">
+                FECHAR
+            </button>
+        </div>
+    </div>
+
+    <script src="foguete.js"></script>
+
+</body>
+
+</html>
