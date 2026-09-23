@@ -219,23 +219,6 @@ function updateCalculations() {
             "pt-BR"
         ) + " kg";
 
-
-    $("informacoes-configuracao").innerHTML =
-
-        `Massa seca: <b>${config.dryMass.toFixed(0)} kg</b><br>` +
-
-        `Massa inicial: <b>${(
-            config.dryMass +
-            config.fuel
-        ).toFixed(0)} kg</b><br>` +
-
-        `Vazão: <b>${config.massFlow.toFixed(2)} kg/s</b><br>` +
-
-        `Tempo de queima: <b>${config.burnTime.toFixed(1)} s</b><br>` +
-
-        `Isp: <b>${config.isp} s</b>`;
-
-
     if (!state.running) {
 
         state.fuel =
